@@ -9,16 +9,18 @@ import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 
+import java.io.IOException;
+
 
 @RunWith(Cucumber.class)
 public class MyStepDefenition extends driverUtil {
 
 
     @Given("^User is on GreenCart Landig page$")
-    public void user_is_on_GreenCart_Landig_page() {
-        driver = driverUtil.getDriver();
-        String url = "https://rahulshettyacademy.com/seleniumPractise/#/";
-        driver.get(url);
+    public void user_is_on_GreenCart_Landig_page() throws IOException {
+        driverUtil.getDriver();
+        //String url = "https://rahulshettyacademy.com/seleniumPractise/#/";
+        //driver.get(url);
     }
 
     @When("^User searched for \"([^\"]*)\" Vegetables\\.$")
