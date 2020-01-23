@@ -8,24 +8,25 @@ import cucumber.api.junit.Cucumber;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.WebDriver;
+import pageObjects.HomePage;
 import java.io.IOException;
-
 
 @RunWith(Cucumber.class)
 public class MyStepDefenition extends driverUtil {
 
+    public WebDriver driver;
+    HomePage home;
 
     @Given("^User is on GreenCart Landig page$")
     public void user_is_on_GreenCart_Landig_page() throws IOException {
         driverUtil.getDriver();
-        //String url = "https://rahulshettyacademy.com/seleniumPractise/#/";
-        //driver.get(url);
     }
 
     @When("^User searched for \"([^\"]*)\" Vegetables\\.$")
     public void user_searched_for_Vegetables(String arg1) throws Throwable {
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/div[2]/form/input")).sendKeys(arg1);
+        home= new HomePage(driver);
+        home.getSearch().sendKeys(arg1);
         Thread.sleep(5000);
     }
 
