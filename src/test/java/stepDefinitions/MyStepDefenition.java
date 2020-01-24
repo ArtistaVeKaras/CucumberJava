@@ -16,16 +16,17 @@ import java.io.IOException;
 public class MyStepDefenition extends driverUtil {
 
     public WebDriver driver;
-    HomePage home;
 
-    @Given("^User is on GreenCart Landig page$")
+    //Creating a constractor to acces the classes from the HomePage!
+    HomePage home= new HomePage(driver);
+
+    @Given("^User is on GreenCart Landing page$")
     public void user_is_on_GreenCart_Landig_page() throws IOException {
         driverUtil.getDriver();
     }
 
     @When("^User searched for \"([^\"]*)\" Vegetables\\.$")
     public void user_searched_for_Vegetables(String arg1) throws Throwable {
-        home= new HomePage(driver);
         home.getSearch().sendKeys(arg1);
         Thread.sleep(5000);
     }

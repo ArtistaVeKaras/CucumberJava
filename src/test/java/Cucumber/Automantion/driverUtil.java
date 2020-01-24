@@ -11,11 +11,13 @@ public class driverUtil {
     public static WebDriver driver;
     public static Properties prop;
 
+
+    //Is not good practice to call this driver for the other classes...this driver should only be used to initialize the first driver
     public static WebDriver getDriver() throws IOException {
 
         //Creating a properties obj to access the properties from the properties file
         //And declare a global variable
-         prop = new Properties();
+        prop = new Properties();
 
         //Add the path of global.properties file
         String projpath = System.getProperty("user.dir");
@@ -26,7 +28,7 @@ public class driverUtil {
         //setting up drivers to accessible from other classes
         String projectPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/java/drivers/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get(prop.getProperty("url"));
         return driver;
 

@@ -71,15 +71,20 @@ public class stepDefinition {
     	System.out.println(obj.get(0).get(2));
     	System.out.println(obj.get(0).get(3));
     	System.out.println(obj.get(0).get(4));
-
     }
-    
     @When("^User login in to the application with (.+) and (.+)$")
     public void user_login_in_to_the_application_with_and(String username, String password) throws Throwable {
     	System.out.println(username);
     	System.out.println(password);
 
-    
+    }
+    @When("^ User searched for (.+) Vegetable$")
+    public void user_searched_for_vegetable(String name) throws Throwable {
+
+    }
+    @Then("^ Verify selected (.+) items are displayed in checkout page$")
+    public void verify_selected_items_are_displayed_in_checkout_page(String name) throws Throwable {
+
     }
 
 }
